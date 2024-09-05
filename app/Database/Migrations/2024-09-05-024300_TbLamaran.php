@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class TbUsers extends Migration
+class TbLamaran extends Migration
 {
     public function up()
     {
@@ -15,29 +15,25 @@ class TbUsers extends Migration
                 'unsigned' => true,
                 'auto_increment' => true
             ],
-            'username' => [
-                'type' => 'VARCHAR',
-                'constraint' => '100'
-            ],
-            'nama_lengkap' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '100'
-            ],
-            'password' => [
+            'perusahaan' => [
                 'type' => 'VARCHAR',
                 'constraint' => '256'
             ],
-            'alamat' => [
+            'alamat_perusahaan' => [
                 'type' => 'VARCHAR',
                 'constraint' => '256'
             ],
-            'no_hp' => [
-                'type' => 'VARCHAR',
-                'constraint' => '20'
+            'tanggal' => [
+                'type' => 'DATE'
             ],
-            'role_id' => [
-                'type'           => 'INT',
+            'portal_id' => [
+                'type' => 'INT',
                 'constraint'     => 11,
+                'unsigned' => true
+            ],
+            'status_id' => [
+                'type' => 'INT',
+                'constraint' => 11,
                 'unsigned' => true
             ],
             'created_at' => [
@@ -48,15 +44,11 @@ class TbUsers extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('tb_users');
-        $this->forge->addForeignKey('role_id', 'tb_role', 'id', 'CASCADE', 'SET NULL');
+        $this->forge->createTable('tb_lamaran');
     }
 
     public function down()
     {
-        // $this->forge->dropForeignKey('tb_users', 'role_id');
-        // $this->forge->dropColumn('tb_users', 'role_id');
-        $this->forge->dropTable('tb_users');
-        
+        $this->forge->dropTable('tb_lamaran');
     }
 }
