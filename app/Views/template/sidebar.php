@@ -16,7 +16,7 @@
         </li>
         
         <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(); ?>../../index.html">
+                <a class="nav-link" href="">
                     <span class="menu-title">Dashboard</span>
                     <i class="mdi mdi-home menu-icon"></i>
                 </a>
@@ -24,20 +24,17 @@
 
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">Basic UI Elements</span>
+                <span class="menu-title">Data Master</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url(); ?>../../pages/ui-features/buttons.html">Buttons</a>
+                        <a class="nav-link" href="">Portal Lamaran</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url(); ?>../../pages/ui-features/dropdowns.html">Dropdowns</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url(); ?>../../pages/ui-features/typography.html">Typography</a>
+                        <a class="nav-link" href="">List Lamaran</a>
                     </li>
                 </ul>
             </div>
@@ -45,25 +42,18 @@
 
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                <span class="menu-title">Icons</span>
+                <span class="menu-title">Laporan</span>
+                <i class="menu-arrow"></i>
                 <i class="mdi mdi-contacts menu-icon"></i>
             </a>
             <div class="collapse" id="icons">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url(); ?>../../pages/icons/font-awesome.html">Font Awesome</a>
+                        <a class="nav-link" href="">Laporan</a>
                     </li>
                 </ul>
             </div>
         </li>
             
-            
-        <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
-                <i class="mdi mdi-lock menu-icon"></i>
-                </a>
-            </li>
     </ul>
 </nav>

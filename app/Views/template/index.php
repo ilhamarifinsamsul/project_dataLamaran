@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/dist/assets/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/dist/assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/dist/assets/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/src/assets/css/map/style.css.map">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
@@ -19,7 +20,8 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/dist/assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="<?= base_url(); ?>assets/dist/assets/images/favicon.png" />
+    <link rel="shortcut icon" href="<?= base_url(); ?>assets/dist/assets/images/favicon.png"/>
+    
 </head>
 <body>
     <div class="container-scroller">
