@@ -12,6 +12,7 @@ class SeedUser extends Seeder
             [
                 'username' => 'admin',
                 'nama_lengkap' => 'Admin Sistem Informasi',
+                'email' => 'iadmin@gmail.com',
                 'password' => password_hash('123', PASSWORD_DEFAULT),
                 'alamat' => 'Subang',
                 'no_hp' => '087699525330',
@@ -20,8 +21,9 @@ class SeedUser extends Seeder
                 'updated_at' => '2024-09-05 14:15:00.000',
             ],
             [
-                'username' => 'Ilham',
+                'username' => 'ilham',
                 'nama_lengkap' => 'Ilham Arifin',
+                'email' => 'ilham@gmail.com',
                 'password' => password_hash('1234', PASSWORD_DEFAULT),
                 'alamat' => 'Subang',
                 'no_hp' => '089699525330',

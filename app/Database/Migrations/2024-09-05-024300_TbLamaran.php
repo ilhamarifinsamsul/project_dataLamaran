@@ -13,15 +13,15 @@ class TbLamaran extends Migration
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
-                'auto_increment' => true
+                'auto_increment' => true,
             ],
             'perusahaan' => [
                 'type' => 'VARCHAR',
-                'constraint' => '256'
+                'constraint' => '256',
             ],
             'alamat_perusahaan' => [
                 'type' => 'VARCHAR',
-                'constraint' => '256'
+                'constraint' => '256',
             ],
             'tanggal' => [
                 'type' => 'DATE'
@@ -29,21 +29,25 @@ class TbLamaran extends Migration
             'portal_id' => [
                 'type' => 'INT',
                 'constraint'     => 11,
-                'unsigned' => true
+                'unsigned' => true,
             ],
             'status_id' => [
                 'type' => 'INT',
                 'constraint' => 11,
-                'unsigned' => true
+                'unsigned' => true,
             ],
             'created_at' => [
-                'type'           => 'DATETIME'
+                'type'           => 'DATETIME',
+                'null'  => true,
             ],
             'updated_at' => [
-                'type'           => 'DATETIME'
+                'type'           => 'DATETIME',
+                'null'  => true,
             ],
         ]);
         $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('portal_id', 'tb_portal', 'id');
+        $this->forge->addForeignKey('status_id', 'tb_status', 'id');
         $this->forge->createTable('tb_lamaran');
     }
 
