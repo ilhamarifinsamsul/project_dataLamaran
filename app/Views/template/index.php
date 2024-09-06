@@ -2,9 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <?php 
-        $alert = new \App\Libraries\Alert();
-    ?>
+<?php 
+    
+    $alert = new App\Libraries\Alert();
+
+?>
 
 
 <head>
@@ -38,8 +40,9 @@
     <?= $this->renderSection('head'); ?>
 </head>
 <body>
+    <?= $alert->get(); ?>
     <div class="container-scroller">
-        <?= $alert->get(); ?>
+        
     <!-- partial:../../partials/_navbar.html -->
     <?= $this->include('template/topbar'); ?>
     <!-- partial -->
@@ -92,14 +95,17 @@
     <script src="<?= base_url(); ?>assets/plugins/select2/js/select2.min.js"></script>
     <script src="<?= base_url(); ?>assets/plugins/select2/js/select2.full.min.js"></script>
     <script src="<?= base_url(); ?>assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url(); ?>assets/sweetalert2/sweetalert2.all.min.js"></script>
+    
+    
 
     <script type="text/javascript" src="<?= base_url(); ?>assets/DataTables/datatables.min.js"></script>
-    <?= $alert->init('jquery'); ?>
+    
     
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
-    
+    <?= $alert->init('jquery'); ?>
     <?= $this->renderSection('script'); ?>
 </body>
 </html>

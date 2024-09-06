@@ -3,7 +3,7 @@
 <head>
 
 <?php 
-    $alert = new \App\Libraries\Alert();
+    $alert = new App\Libraries\Alert();
 ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -83,7 +83,7 @@
             </div>
             <!-- content-wrapper ends -->
         </div>
-      <!-- page-body-wrapper ends -->
+    <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
@@ -97,6 +97,7 @@
     <script src="<?= base_url(); ?>assets/src/assets/js/settings.js"></script>
     <script src="<?= base_url(); ?>assets/src/assets/js/todolist.js"></script>
     <script src="<?= base_url(); ?>assets/src/assets/js/jquery.cookie.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
     <!-- endinject -->
     <script>
         function fixAlert() {

@@ -7,8 +7,6 @@ namespace App\Libraries;
 
 class Alert
 {
-
-
     protected $session;
     public function __construct()
     {

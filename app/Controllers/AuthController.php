@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Libraries\Alert;
 use App\Models\UserModel;
 use CodeIgniter\HTTP\ResponseInterface;
 
