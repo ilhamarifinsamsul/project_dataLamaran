@@ -1,6 +1,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
+    <?php 
+        $alert = new \App\Libraries\Alert();
+    ?>
+
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,8 +18,15 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/dist/assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/dist/assets/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/src/assets/css/map/style.css.map">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/summernote/summernote-bs4.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/plugins/sweetalert2/sweetalert2.min.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
+    
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -22,9 +35,11 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="<?= base_url(); ?>assets/dist/assets/images/favicon.png"/>
     
+    <?= $this->renderSection('head'); ?>
 </head>
 <body>
     <div class="container-scroller">
+        <?= $alert->get(); ?>
     <!-- partial:../../partials/_navbar.html -->
     <?= $this->include('template/topbar'); ?>
     <!-- partial -->
@@ -51,8 +66,11 @@
     <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
+    
     <!-- plugins:js -->
     <script src="<?= base_url(); ?>assets/dist/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
@@ -62,8 +80,26 @@
     <script src="<?= base_url(); ?>assets/dist/assets/js/settings.js"></script>
     <script src="<?= base_url(); ?>assets/dist/assets/js/todolist.js"></script>
     <script src="<?= base_url(); ?>assets/dist/assets/js/jquery.cookie.js"></script>
+    <script src="<?= base_url(); ?>assets/src/assets/js/select2.js"></script>
+    <script src="<?= base_url(); ?>assets/dist/assets/js/chart.js"></script>
+    <script src="<?= base_url(); ?>assets/dist/assets/js/file-upload.js"></script>
+    <script src="<?= base_url(); ?>assets/dist/assets/js/jquery-file-upload.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/summernote/summernote-bs4.min.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/select2/js/select2.min.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/select2/js/select2.full.min.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
+    <script type="text/javascript" src="<?= base_url(); ?>assets/DataTables/datatables.min.js"></script>
+    <?= $alert->init('jquery'); ?>
+    
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
+    
+    <?= $this->renderSection('script'); ?>
 </body>
 </html>

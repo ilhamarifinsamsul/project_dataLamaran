@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Libraries\Alert;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -35,7 +36,9 @@ abstract class BaseController extends Controller
      *
      * @var list<string>
      */
-    protected $helpers = [];
+    
+    protected $helpers = ['form', 'custom'];
+    public $alert;
 
     /**
      * Be sure to declare properties for any property fetch you initialized.
