@@ -1,23 +1,22 @@
 <?= $this->extend('template/index'); ?>
 <?= $this->section('content'); ?>
 
-<!-- Content Header (Page header) -->
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h3 class="m-0">Dashboard</h3>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
-                </ol>
-            </div>
-            <!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
+<div class="page-header">
+    <h3 class="page-title">
+        <span class="page-title-icon bg-gradient-primary text-white me-2">
+            <i class="mdi mdi-home"></i>
+        </span> Dashboard
+    </h3>
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+            </li>
+        </ul>
+    </nav>
 </div>
+<!-- Content Header (Page header) -->
+
 <!-- /.content-header -->
 
 <?= $this->endSection('content'); ?>

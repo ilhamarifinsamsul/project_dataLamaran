@@ -16,7 +16,7 @@
         </li>
         
         <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="<?= base_url('dashboard'); ?>">
                     <span class="menu-title">Dashboard</span>
                     <i class="mdi mdi-home menu-icon"></i>
                 </a>
@@ -31,7 +31,7 @@
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="">Portal Lamaran</a>
+                        <a class="nav-link" href="<?= base_url('master/portal'); ?>">Portal Lamaran</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">List Lamaran</a>
