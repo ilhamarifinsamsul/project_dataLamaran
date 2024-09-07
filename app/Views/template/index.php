@@ -96,6 +96,29 @@
     <script src="<?= base_url(); ?>assets/plugins/select2/js/select2.full.min.js"></script>
     <script src="<?= base_url(); ?>assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <script src="<?= base_url(); ?>assets/sweetalert2/sweetalert2.all.min.js"></script>
+
+    <script>
+        // var message = '<?= session()->get('message'); ?>'
+        // if (message) {
+        //     Swal.fire({
+        //     title: 'Error!',
+        //     text: 'Do you want to continue',
+        //     icon: 'error',
+        //     confirmButtonText: 'Cool'
+        //     })
+        // }
+
+        <?php if(session()->get('message')): ?>
+            Swal.fire({
+            title: '<?= session()->get('message'); ?>',
+            text: '<?= session()->get('text'); ?>' ,
+            icon: '<?= session()->get('icon'); ?>',
+            confirmButtonText: 'Yes'
+            })
+
+        <?php endif; ?>
+        
+    </script>
     
     
 

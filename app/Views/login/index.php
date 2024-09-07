@@ -98,6 +98,8 @@
     <script src="<?= base_url(); ?>assets/src/assets/js/todolist.js"></script>
     <script src="<?= base_url(); ?>assets/src/assets/js/jquery.cookie.js"></script>
     <script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>assets/sweetalert2/sweetalert2.all.min.js"></script>
+    
     <!-- endinject -->
     <script>
         function fixAlert() {
