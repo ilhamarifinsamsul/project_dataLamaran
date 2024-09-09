@@ -34,7 +34,7 @@
                         <a class="nav-link" href="<?= base_url('master/portal'); ?>">Portal Lamaran</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">List Lamaran</a>
+                        <a class="nav-link" href="<?= base_url('master/lamaran'); ?>">List Lamaran</a>
                     </li>
                 </ul>
             </div>

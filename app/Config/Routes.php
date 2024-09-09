@@ -16,3 +16,5 @@ $routes->get('master/portal(:any)', 'Portal::update/$1');
 $routes->post('master/portal(:any)', 'Portal::update/$1');
 $routes->put('master/portal(:any)', 'Portal::update/$1');
 
+$routes->resource('master/lamaran', ['controller' => 'Lamaran']);
+

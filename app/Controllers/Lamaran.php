@@ -5,16 +5,34 @@ namespace App\Controllers;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
-class Lamaran extends ResourceController
+class Lamaran extends BaseController
 {
     /**
      * Return an array of resource objects, themselves in array format.
      *
      * @return ResponseInterface
      */
+
+    private $modellamaran;
+    private $modelportal;
+    private $title = 'Lamaran';
+
+    public function __construct()
+    {
+        $this->modellamaran = new \App\Models\LamaranModel();
+        $this->modelportal = new \App\Models\PortalModel();
+    }
+    
     public function index()
     {
-        //
+        $lamaran = $this->modellamaran->select('tb_lamaran.*')->select('perusahaan')->select('nama_portal')->join('tb_portal', 'tb_lamaran.portal_id = tb_portal.id')->orderBy('id', 'DESC')->findAll();
+
+        $data = [
+            'title' => $this->title,
+            'lamaran' => $lamaran
+        ];
+
+        return view('master/lamaran/index', $data);
     }
 
     /**
@@ -26,7 +44,7 @@ class Lamaran extends ResourceController
      */
     public function show($id = null)
     {
-        //
+        return redirect()->to('master/lamaran');
     }
 
     /**
@@ -36,7 +54,14 @@ class Lamaran extends ResourceController
      */
     public function new()
     {
-        //
+        session();
+        $data = [
+            'title' => $this->title,
+            'lamaran' => $this->modellamaran->findAll(),
+            'validation' => \Config\Services::validation()
+        ];
+
+        return view('master/lamaran/new', $data);
     }
 
     /**
