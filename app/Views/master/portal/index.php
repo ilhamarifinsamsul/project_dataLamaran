@@ -20,7 +20,7 @@
 
 <div class="row">
     <div class="col-12 grid-margin">
-        <a href="<?= base_url('barangview/kategori/new'); ?>" class="btn btn-primary btn-sm mb-2 right">Tambah data <i class="fa solid fa-plus"></i></a>
+        <a href="<?= base_url(); ?>master/portal/new" class="btn btn-primary btn-sm mb-2">Tambah data <i class="fa solid fa-plus"></i></a>
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">List Portal</h4>
@@ -39,7 +39,15 @@
                                 <tr>
                                     <td><?= $a++; ?></td>
                                     <td><?= $d['nama_portal']; ?></td>
-                                    <td></td>
+                                    <td>
+                                        <a href="<?= base_url('master/portal' . $d['id'] . '/edit'); ?>" class="btn btn-primary btn-sm mb-2"><i class="mdi mdi-pen"></i></a>
+                                        <form action="<?= base_url('master/portal') . '/' . $d['id']; ?>" method="post" enctype="multipart/form-data">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <!-- GET, POST, PUT, PATCH, DELETE-->
+                                            <?= csrf_field(); ?>
+                                            <button type="button" onclick="deleteTombol(this)" class="btn btn-danger btn-sm mb-2"><i class="mdi mdi-delete-empty"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>

@@ -35,22 +35,27 @@ class AuthController extends BaseController
             $userData = $res[0];
             if(password_verify($password, $userData['password'])) {
                 if ($userData) {
-                    session()->setFlashdata('message','User Login');
+                    session()->setFlashdata('message','Login');
                     session()->setFlashdata('text', 'User Berhasil Login');
                     session()->setFlashdata('icon','success');
                     // $this->alert->set('success', 'Success', 'User Berhasil Login');
                     session()->set('id', $userData['id']);
                     session()->set('username', $userData['username']);
                     session()->set('role_id', $userData['role_id']);
-                    session()->setFlashdata('message','User Login');
+                    session()->setFlashdata('message','Login');
                     // session()->get('message');
                     return redirect()->to('dashboard');
                 }
             } else {
+                session()->setFlashdata('message', 'Gagal');
+                session()->setFlashdata('text', 'Password Salah');
+                session()->setFlashdata('icon', 'warning');
                 // $this->alert->set('warning', 'Warning', 'Password Salah');
             }
         } else {
-            
+                session()->setFlashdata('message', 'Gagal');
+                session()->setFlashdata('text', 'User Tidak Ada');
+                session()->setFlashdata('icon', 'warning');
             // $this->alert->set('warning', 'Warning', 'User Tidak Ada');
         }
 

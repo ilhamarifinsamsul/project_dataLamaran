@@ -11,4 +11,8 @@ $routes->get('/authcontroller', 'AuthController::index');
 $routes->get('/dashboard', 'Dashboard::index');
 
 $routes->resource('master/portal', ['controller' => 'Portal']);
+$routes->get('master/portal(:any)', 'Portal::edit/$1');
+$routes->get('master/portal(:any)', 'Portal::update/$1');
+$routes->post('master/portal(:any)', 'Portal::update/$1');
+$routes->put('master/portal(:any)', 'Portal::update/$1');
 

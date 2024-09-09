@@ -42,7 +42,7 @@ class Portal extends BaseController
      */
     public function show($id = null)
     {
-        //
+        return redirect()->to('master/portal');
     }
 
     /**
@@ -52,7 +52,10 @@ class Portal extends BaseController
      */
     public function new()
     {
-        //
+        $data = [
+            'title' => $this->title
+        ];
+        return view('master/portal/new', $data);
     }
 
     /**
@@ -62,7 +65,23 @@ class Portal extends BaseController
      */
     public function create()
     {
-        //
+        $data = [
+            'nama_portal' => $this->request->getVar('nama_portal')
+        ];
+
+        $result = $this->modelportal->save($data);
+
+        if ($result) {
+            session()->setFlashdata('message', 'Berhasil');
+            session()->setFlashdata('text', 'Data Berhasil ditambahkan');
+            session()->setFlashdata('icon', 'success');
+        } else {
+            session()->setFlashdata('message', 'Gagal');
+            session()->setFlashdata('text', 'Data Gagal ditambahkan');
+            session()->setFlashdata('icon', 'warning');
+        }
+
+        return redirect()->to('master/portal');
     }
 
     /**
@@ -74,7 +93,21 @@ class Portal extends BaseController
      */
     public function edit($id = null)
     {
-        //
+        $result = $this->modelportal->find($id);
+        if (!$result) {
+            session()->setFlashdata('message', 'Gagal');
+            session()->setFlashdata('text', 'Data Tidak Valid');
+            session()->setFlashdata('icon', 'warning');
+
+            return redirect()->to('master/portal');
+        }
+
+        $data = [
+            'title' => $this->title,
+            'portal' => $result
+        ];
+
+        return view('master/portal/edit', $data);
     }
 
     /**
@@ -86,7 +119,17 @@ class Portal extends BaseController
      */
     public function update($id = null)
     {
-        //
+        $data = [
+            'nama_portal' => $this->request->getVar('nama_portal')
+        ];
+
+        $result = $this->modelportal->update($id, $data);
+        if ($result) {
+            session()->setFlashdata('message', 'Berhasil');
+            session()->setFlashdata('text', 'Data Berhasil diedit');
+            session()->setFlashdata('icon', 'success');
+        }
+        return redirect()->to('master/portal');
     }
 
     /**
@@ -98,6 +141,27 @@ class Portal extends BaseController
      */
     public function delete($id = null)
     {
-        //
+        $result = $this->modelportal->find($id);
+        if (!$result) {
+            session()->setFlashdata('message', 'Gagal');
+            session()->setFlashdata('text', 'NOT VALID');
+            session()->setFlashdata('icon', 'warning');
+
+            return redirect()->to('master/portal');
+        }
+
+        $res = $this->modelportal->delete($id);
+        if ($res) {
+            # code...
+            session()->setFlashdata('message', 'Berhasil');
+            session()->setFlashdata('text', 'Data Berhasil dihapus');
+            session()->setFlashdata('icon', 'success');
+        } else {
+            session()->setFlashdata('message', 'Warning');
+            session()->setFlashdata('text', 'Data Gagal dihapus');
+            session()->setFlashdata('icon', 'warning');
+        }
+
+        return redirect()->to('master/portal');
     }
 }

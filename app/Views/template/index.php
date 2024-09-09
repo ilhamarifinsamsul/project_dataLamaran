@@ -13,7 +13,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SI-Data Lamaran</title>
+    <title><?= $title; ?> | SI-Data Lamaran</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/dist/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/dist/assets/vendors/ti-icons/css/themify-icons.css">
