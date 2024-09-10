@@ -14,6 +14,7 @@ class LamaranModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'perusahaan',
+        'posisi',
         'alamat_perusahaan',
         'tanggal',
         'portal_id',

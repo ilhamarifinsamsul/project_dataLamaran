@@ -19,6 +19,10 @@ class TbLamaran extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '256',
             ],
+            'posisi' => [
+                'type' => 'VARCHAR',
+                'constraint' => '256',
+            ],
             'alamat_perusahaan' => [
                 'type' => 'VARCHAR',
                 'constraint' => '256',

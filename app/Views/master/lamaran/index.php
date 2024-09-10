@@ -29,6 +29,7 @@
                                 <tr>
                                     <th> No </th>
                                     <th> Perusahaan </th>
+                                    <th> Posisi </th>
                                     <th> Alamat </th>
                                     <th> Tanggal </th>
                                     <th> Portal </th>
@@ -41,13 +42,36 @@
                                 foreach ($lamaran as $d) : ?>
                                 <tr>
                                     <td><?= $a++; ?></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><?= $d['perusahaan']; ?></td>
+                                    <td><?= $d['posisi']; ?></td>
+                                    <td><?= $d['alamat_perusahaan']; ?></td>
+                                    <td><?= $d['tanggal']; ?></td>
+                                    <td><?= $d['nama_portal']; ?></td>
                                     <td>
+                                        <?php if($d['status_id'] == 1) :?>
+                                            <span class="badge badge-secondary"><?= $d['nama_status']; ?></span>
+                                        <?php elseif($d['status_id'] == 2) : ?>
+                                            <span class="badge badge-info"><?= $d['nama_status']; ?></span>
+                                        <?php elseif($d['status_id'] == 3) : ?>
+                                            <span class="badge badge-primary"><?= $d['nama_status']; ?></span>
+                                        <?php elseif($d['status_id'] == 4) : ?>
+                                            <span class="badge badge-danger"><?= $d['nama_status']; ?></span>
+                                        <?php elseif($d['status_id'] == 5) : ?>
+                                            <span class="badge badge-warning"><?= $d['nama_status']; ?></span>
+                                        <?php elseif($d['status_id'] == 6) : ?>
+                                            <span class="badge badge-success"><?= $d['nama_status']; ?></span>
+                                        <?php endif; ?>
+                                    </td>
 
+                                    <td>
+                                        <?php if($d['status_id'] == 1) : ?>
+
+                                            <?php if(session()->get('role_id') == 1) :?>
+                                                <a href="<?= base_url('master/lamaran/' . $d['id'] . '/edit'); ?>" class="btn btn-warning btn-sm mb-2">Edit</a>
+                                            <?php else : ?>
+                                                <?php endif; ?>
+                                            <?php else : ?>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

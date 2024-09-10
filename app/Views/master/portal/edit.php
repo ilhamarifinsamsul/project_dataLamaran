@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <input type="hidden" name="_method" value="PUT">
                         <label for="nama_portal">Nama Portal</label>
-                        <input type="text" name="nama_portal" id="nama_portal" class="form-control" placeholder="Nama Portal" required value="<?= $portal['nama_portal']; ?>">
+                        <input type="text" name="nama_portal" id="nama_portal" class="form-control" required value="<?= $portal['nama_portal']; ?>">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <a href="<?= base_url('master/portal'); ?>" class="btn btn-danger">Batal</a>

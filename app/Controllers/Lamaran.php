@@ -15,7 +15,7 @@ class Lamaran extends BaseController
 
     private $modellamaran;
     private $modelportal;
-    private $title = 'Lamaran';
+    private $title = 'List Lamaran';
 
     public function __construct()
     {
@@ -25,11 +25,12 @@ class Lamaran extends BaseController
     
     public function index()
     {
-        $lamaran = $this->modellamaran->select('tb_lamaran.*')->select('perusahaan')->select('nama_portal')->join('tb_portal', 'tb_lamaran.portal_id = tb_portal.id')->orderBy('id', 'DESC')->findAll();
+        $lamaran = $this->modellamaran->select('tb_lamaran.*')->select('perusahaan')->select('nama_portal')->select('nama_status')->join('tb_portal', 'tb_lamaran.portal_id = tb_portal.id')->join('tb_status', 'tb_lamaran.status_id = tb_status.id')->orderBy('id', 'DESC')->findAll();
 
         $data = [
             'title' => $this->title,
-            'lamaran' => $lamaran
+            'lamaran' => $lamaran,
+            
         ];
 
         return view('master/lamaran/index', $data);
@@ -58,6 +59,7 @@ class Lamaran extends BaseController
         $data = [
             'title' => $this->title,
             'lamaran' => $this->modellamaran->findAll(),
+            'portal' => $this->modelportal->findAll(),
             'validation' => \Config\Services::validation()
         ];
 
@@ -71,7 +73,60 @@ class Lamaran extends BaseController
      */
     public function create()
     {
-        //
+        if (!$this->validate(
+            [
+                'perusahaan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} perusahaan harus diisi.'
+                    ]
+                ],
+                'posisi' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} posisi harus diisi.'
+                    ]
+                ],
+                'alamat_perusahaan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} alamat perusahaan harus diisi.'
+                    ]
+                ]
+            ]
+        )) {
+            $validation = \Config\Services::validation();
+            if ($validation) {
+                session()->setFlashdata('message', 'Gagal');
+                session()->setFlashdata('text', 'Form harus diisi');
+                session()->setFlashdata('icon', 'error');
+            }
+            return redirect()->to('master/lamaran/new')->withInput();
+            
+        }
+
+        $data = [
+            'perusahaan' => $this->request->getVar('perusahaan'),
+            'posisi' => $this->request->getVar('posisi'),
+            'alamat_perusahaan' => $this->request->getVar('alamat_perusahaan'),
+            'tanggal' => $this->request->getVar('tanggal'),
+            'portal_id' => htmlspecialchars($this->request->getVar('portal_id'), true),
+            'status_id' => 1
+        ];
+
+        $res = $this->modellamaran->save($data);
+        if ($res) {
+            session()->setFlashdata('message', 'Berhasil');
+            session()->setFlashdata('text', 'Data Berhasil ditambahkan');
+            session()->setFlashdata('icon', 'success');
+        } else {
+            session()->setFlashdata('message', 'Gagal');
+            session()->setFlashdata('text', 'Data Gagal ditambahkan');
+            session()->setFlashdata('icon', 'warning');
+        }
+
+        return redirect()->to('master/lamaran');
+
     }
 
     /**
@@ -83,7 +138,20 @@ class Lamaran extends BaseController
      */
     public function edit($id = null)
     {
-        //
+        $result = $this->modellamaran->find($id);
+        if (!$result) {
+            session()->setFlashdata('message', 'Gagal');
+            session()->setFlashdata('text', 'NOT VALID');
+            session()->setFlashdata('icon', 'warning');
+        }
+
+        $data = [
+            'title' => $this->title,
+            'portal' => $this->modelportal->findAll(),
+            'lamaran' => $result
+        ];
+
+        return view('master/lamaran/edit', $data);
     }
 
     /**
@@ -107,6 +175,6 @@ class Lamaran extends BaseController
      */
     public function delete($id = null)
     {
-        //
+        
     }
 }
