@@ -73,6 +73,42 @@ class AuthController extends BaseController
 
     public function registered() 
     {
+        $rules = [
+            'username' => 'required',
+            'nama_lengkap' => 'required',
+            'password' => 'required|min_length[5]',
+            'confirm_password' => 'required|min_length[5]|matches[password]',
+            'email' => 'required|is_unique[tb_users.email]',
+            'alamat' => 'required',
+            'no_hp' => 'required'
+        ];
+
+        $input = $this->request->getVar();
+
+        if (!$this->validateData($input, $rules)) {
+            return redirect()->back()->withInput();
+        }
+
+        $data = [
+            'username' => htmlspecialchars($this->request->getVar('username'), true),
+            'nama_lengkap' => htmlspecialchars($this->request->getVar('nama_lengkap'), true),
+            'email' => htmlspecialchars($this->request->getVar('email'), true),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'alamat' => htmlspecialchars($this->request->getVar('alamat'), true),
+            'no_hp' => htmlspecialchars($this->request->getVar('no_hp'), true),
+            'role_id' => 2
+        ];
+
+        $result = $this->modeluser->save($data);
+
+        if ($result) {
+            # code...
+            session()->setFlashdata('message','Register');
+            session()->setFlashdata('text', 'Berhasil Registrasi');
+            session()->setFlashdata('icon','success');
+        } 
+        return redirect()->to('authcontroller/index');
+
         
     }
 

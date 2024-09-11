@@ -34,8 +34,9 @@
                 <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
                 <form class="pt-3" action="<?= base_url() ?>authcontroller/register" method="post">
 
+                  <div class="mb-3 text-danger"><?= validation_show_error('username'); ?></div>
                   <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?= old('username'); ?>">
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="mdi mdi-account"></span>
@@ -43,8 +44,9 @@
                     </div>
                   </div>
 
+                  <div class="mb-3 text-danger"><?= validation_show_error('nama_lengkap'); ?></div>
                   <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Lengkap">
+                    <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Lengkap" value="<?= old('nama_lengkap'); ?>">
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="mdi mdi-account-multiple"></span>
@@ -52,8 +54,9 @@
                     </div>
                   </div>
 
+                  <div class="mb-3 text-danger"><?= validation_show_error('email'); ?></div>
                   <div class="input-group mb-2">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?= old('email'); ?>">
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="mdi mdi-gmail"></span>
@@ -61,6 +64,7 @@
                     </div>
                   </div>
 
+                  <div class="mb-3 text-danger"><?= validation_show_error('password'); ?></div>
                   <div class="input-group mb-2">
                   <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                     <div class="input-group-append">
@@ -70,8 +74,9 @@
                     </div>
                   </div>
                   
+                  <div class="mb-3 text-danger"><?= validation_show_error('confirm_password'); ?></div>
                   <div class="input-group mb-2">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Retype Password">
+                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Retype Password">
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="mdi mdi-key"></span>
@@ -79,8 +84,9 @@
                     </div>
                   </div>
                   
+                  <div class="mb-3 text-danger"><?= validation_show_error('alamat'); ?></div>
                   <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
+                    <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat" value="<?= old('alamat'); ?>">
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="mdi mdi-home"></span>
@@ -88,14 +94,16 @@
                     </div>
                   </div>
 
+                  <div class="mb-3 text-danger"><?= validation_show_error('no_hp'); ?></div>
                   <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="No HP">
+                    <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="No HP" value="<?= old('no_hp'); ?>">
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="mdi mdi-phone-classic"></span>
                       </div>
                     </div>
                   </div>
+
                   <div class="mb-6">
                     <div class="form-check">
                       <label class="form-check-label text-muted">

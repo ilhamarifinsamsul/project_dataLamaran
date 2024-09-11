@@ -31,12 +31,14 @@
                 </a>
         </li>
 
+        <?php if (session()->get('role_id') == 1) :?>
         <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('dashboard'); ?>">
+                <a class="nav-link" href="#">
                     <span class="menu-title">Kelola Users</span>
                     <i class="mdi mdi-account-multiple menu-icon"></i>
                 </a>
         </li>
+        <?php endif; ?>
 
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
