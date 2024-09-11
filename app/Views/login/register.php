@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Purple Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/src/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/src/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/src/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/src/assets/vendors/font-awesome/css/font-awesome.min.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/src/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="<?= base_url(); ?>assets/src/assets/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth">
+          <div class="row flex-grow">
+            <div class="col-lg-4 mx-auto">
+              <div class="auth-form-light text-left p-5">
+                <div class="brand-logo">
+                  <img src="<?= base_url(); ?>assets/src/assets/images/logo.svg">
+                </div>
+                <h4>REGISTRASI</h4>
+                <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
+                <form class="pt-3" action="<?= base_url() ?>authcontroller/register" method="post">
+
+                  <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="mdi mdi-account"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Lengkap">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="mdi mdi-account-multiple"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-2">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="mdi mdi-gmail"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-2">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="mdi mdi-lock"></span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="input-group mb-2">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Retype Password">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="mdi mdi-key"></span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Alamat">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="mdi mdi-home"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="No HP">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="mdi mdi-phone-classic"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-6">
+                    <div class="form-check">
+                      <label class="form-check-label text-muted">
+                        <input type="checkbox" class="form-check-input"> I agree to all Terms & Conditions </label>
+                    </div>
+                  </div>
+                  <div class="mt-3 d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <!-- <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN UP</a> -->
+                  </div>
+                  <div class="text-center mt-4 font-weight-light"> Already have an account? <a href="<?= base_url(); ?>authcontroller/index" class="text-primary">Login</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="<?= base_url(); ?>assets/src/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="<?= base_url(); ?>assets/src/assets/js/off-canvas.js"></script>
+    <script src="<?= base_url(); ?>assets/src/assets/js/misc.js"></script>
+    <script src="<?= base_url(); ?>assets/src/assets/js/settings.js"></script>
+    <script src="<?= base_url(); ?>assets/src/assets/js/todolist.js"></script>
+    <script src="<?= base_url(); ?>assets/src/assets/js/jquery.cookie.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>assets/sweetalert2/sweetalert2.all.min.js"></script>
+    <!-- endinject -->
+  </body>
+</html>

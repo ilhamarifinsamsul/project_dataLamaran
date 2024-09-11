@@ -35,6 +35,7 @@
                                     <th> Portal </th>
                                     <th> Status </th>
                                     <th> Aksi </th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,14 +65,20 @@
                                     </td>
 
                                     <td>
-                                        <?php if($d['status_id'] == 1) : ?>
+                                        <?php if($d['status_id'] == 1 || 2 || 3 || 4 || 5 || 6 ) : ?>
 
                                             <?php if(session()->get('role_id') == 1) :?>
-                                                <a href="<?= base_url('master/lamaran/' . $d['id'] . '/edit'); ?>" class="btn btn-warning btn-sm mb-2">Edit</a>
+                                                <a href="<?= base_url('master/lamaran/' . $d['id'] . '/edit'); ?>" class="btn btn-warning btn-sm mb-2"><i class="mdi mdi-pen"></i></a>
                                             <?php else : ?>
                                                 <?php endif; ?>
                                             <?php else : ?>
                                         <?php endif; ?>
+                                        <form action="<?= base_url('master/lamaran') . '/' . $d['id']; ?>" method="post" enctype="multipart/form-data">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <!-- GET, POST, PUT, PATCH, DELETE-->
+                                            <?= csrf_field(); ?>
+                                            <button type="button" onclick="deleteTombol(this)" class="btn btn-danger btn-sm mb-2"><i class="mdi mdi-delete-empty"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

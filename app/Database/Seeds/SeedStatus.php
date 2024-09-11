@@ -25,7 +25,7 @@ class SeedStatus extends Seeder
                 'nama_status' => 'MCU',
             ],
             [
-                'nama_status' => 'joined',
+                'nama_status' => 'Joined',
             ],
         ];
         $this->db->table('tb_status')->insertBatch($data);

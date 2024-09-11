@@ -56,10 +56,24 @@ class AuthController extends BaseController
                 session()->setFlashdata('message', 'Gagal');
                 session()->setFlashdata('text', 'User Tidak Ada');
                 session()->setFlashdata('icon', 'warning');
-            // $this->alert->set('warning', 'Warning', 'User Tidak Ada');
+            // $this->set('warning', 'Warning', 'User Tidak Ada');
         }
 
         return redirect()->to('authcontroller');
+    }
+
+    public function register() 
+    {
+        $data = [
+            'title' => 'Register',
+            
+        ];
+        return view('Login/register', $data);
+    }
+
+    public function registered() 
+    {
+        
     }
 
     public function logout(){

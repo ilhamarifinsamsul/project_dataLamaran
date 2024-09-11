@@ -163,7 +163,36 @@ class Lamaran extends BaseController
      */
     public function update($id = null)
     {
-        //
+        $data = [
+            'perusahaan' => $this->request->getVar('perusahaan'),
+            'posisi' => $this->request->getVar('posisi'),
+            'alamat_perusahaan' => $this->request->getVar('alamat_perusahaan'),
+            'tanggal' => $this->request->getVar('tanggal'),
+            'portal_id' => $this->request->getVar('portal_id')
+        ];
+        
+        if (session()->get('role_id') == 1) {
+            $data = [
+                'status_id' => htmlspecialchars($this->request->getVar('status_id'))
+            ];
+        }
+
+        
+
+        $result = $this->modellamaran->update($id, $data);
+
+
+        if ($result) {
+            session()->setFlashdata('message', 'Berhasil');
+            session()->setFlashdata('text', 'Data Berhasil diupdate');
+            session()->setFlashdata('icon', 'success');
+        } else {
+            session()->setFlashdata('message', 'Gagal');
+            session()->setFlashdata('text', 'Data Gagal diupdate');
+            session()->setFlashdata('icon', 'warning');
+        }
+
+        return redirect()->to('master/lamaran');
     }
 
     /**
@@ -175,6 +204,27 @@ class Lamaran extends BaseController
      */
     public function delete($id = null)
     {
-        
+        $result = $this->modellamaran->find($id);
+        if (!$result) {
+            session()->setFlashdata('message', 'Gagal');
+            session()->setFlashdata('text', 'NOT VALID');
+            session()->setFlashdata('icon', 'warning');
+
+            return redirect()->to('master/portal');
+        }
+
+        $res = $this->modellamaran->delete($id);
+        if ($res) {
+            # code...
+            session()->setFlashdata('message', 'Berhasil');
+            session()->setFlashdata('text', 'Data Berhasil dihapus');
+            session()->setFlashdata('icon', 'success');
+        } else {
+            session()->setFlashdata('message', 'Warning');
+            session()->setFlashdata('text', 'Data Gagal dihapus');
+            session()->setFlashdata('icon', 'warning');
+        }
+
+        return redirect()->to('master/lamaran');
     }
 }

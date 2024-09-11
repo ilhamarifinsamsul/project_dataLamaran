@@ -1,3 +1,11 @@
+<?php 
+    $user = new App\Models\UserModel();
+
+    $resUser = $user->join('tb_role', 'tb_role.id = tb_users.role_id')->find(session()->get('role_id'));
+
+?>
+
+
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
         <a class="navbar-brand brand-logo" href="#"><img src="<?= base_url(); ?>assets/dist/assets/images/logo.svg" alt="logo" /></a>
@@ -17,7 +25,7 @@
                     <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                    <p class="mb-1 text-black">David Greymaax</p>
+                    <p class="mb-1 text-black"><?= $resUser['nama_lengkap']; ?></p>
                 </div>
                 </a>
                 <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
