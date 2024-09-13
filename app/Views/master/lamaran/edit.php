@@ -56,7 +56,7 @@
 
                     <div class="form-group">
                         <label for="tanggal">Tanggal</label>
-                        <input type="date" value="<?= date("Y-m-d"); ?>" class="form-control" id="tanggal" name="tanggal" disabled>
+                        <input type="date" value="<?= $lamaran['tanggal']; ?>" class="form-control" id="tanggal" name="tanggal">
                     </div>
 
                     <div class="form-group">
