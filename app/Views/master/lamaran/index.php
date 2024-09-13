@@ -28,6 +28,7 @@
                             <thead>
                                 <tr>
                                     <th> No </th>
+                                    <th> Nama </th>
                                     <th> Perusahaan </th>
                                     <th> Posisi </th>
                                     <th> Alamat </th>
@@ -43,6 +44,7 @@
                                 foreach ($lamaran as $d) : ?>
                                 <tr>
                                     <td><?= $a++; ?></td>
+                                    <td><?= $d['nama_lengkap']; ?></td>
                                     <td><?= $d['perusahaan']; ?></td>
                                     <td><?= $d['posisi']; ?></td>
                                     <td><?= $d['alamat_perusahaan']; ?></td>

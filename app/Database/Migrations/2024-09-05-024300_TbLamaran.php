@@ -15,6 +15,11 @@ class TbLamaran extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
+            'user_id' => [
+                'type' => 'INT',
+                'constraint'     => 11,
+                'unsigned' => true,
+            ],
             'perusahaan' => [
                 'type' => 'VARCHAR',
                 'constraint' => '256',
@@ -50,6 +55,7 @@ class TbLamaran extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
+        $this->forge->addForeignKey('user_id', 'tb_users', 'id');
         $this->forge->addForeignKey('portal_id', 'tb_portal', 'id');
         $this->forge->addForeignKey('status_id', 'tb_status', 'id');
         $this->forge->createTable('tb_lamaran');

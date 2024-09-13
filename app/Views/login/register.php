@@ -164,7 +164,7 @@
         setInterval(fixAlert, 5);
     </script>
 
-    <?= $alert->init('jquery'); ?>
+    
     <!-- endinject -->
   </body>
 </html>

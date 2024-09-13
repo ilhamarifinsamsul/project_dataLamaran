@@ -13,6 +13,7 @@ class LamaranModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
+        'user_id',
         'perusahaan',
         'posisi',
         'alamat_perusahaan',

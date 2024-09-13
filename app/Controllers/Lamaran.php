@@ -15,20 +15,26 @@ class Lamaran extends BaseController
 
     private $modellamaran;
     private $modelportal;
+    private $modeluser;
     private $title = 'List Lamaran';
 
     public function __construct()
     {
         $this->modellamaran = new \App\Models\LamaranModel();
         $this->modelportal = new \App\Models\PortalModel();
+        $this->modeluser = new \App\Models\UserModel();
     }
     
     public function index()
     {
 
-        $lamaran = $this->modellamaran->select('tb_lamaran.*')->select('perusahaan')->select('nama_portal')->select('nama_status')->join('tb_portal', 'tb_lamaran.portal_id = tb_portal.id')->join('tb_status', 'tb_lamaran.status_id = tb_status.id')->orderBy('id', 'DESC')->findAll();
-
         
+
+        if (session()->get('role_id') == 1) {
+            $lamaran = $this->modellamaran->select('tb_lamaran.*')->select('nama_lengkap')->select('nama_portal')->select('nama_status')->join('tb_portal', 'tb_lamaran.portal_id = tb_portal.id')->join('tb_status', 'tb_lamaran.status_id = tb_status.id')->join('tb_users', 'tb_lamaran.user_id = tb_users.id')->orderBy('id', 'DESC')->findAll();
+        } else {
+            $lamaran = $this->modellamaran->select('tb_lamaran.*')->select('nama_lengkap')->select('nama_portal')->select('nama_status')->join('tb_portal', 'tb_lamaran.portal_id = tb_portal.id')->join('tb_status', 'tb_lamaran.status_id = tb_status.id')->join('tb_users', 'tb_lamaran.user_id = tb_users.id')->orderBy('id', 'DESC')->where('user_id', session()->get('id'))->find();
+        }
 
         $data = [
             'title' => $this->title,
@@ -61,6 +67,7 @@ class Lamaran extends BaseController
         session();
         $data = [
             'title' => $this->title,
+            'user' => $this->modeluser->findAll(),
             'lamaran' => $this->modellamaran->findAll(),
             'portal' => $this->modelportal->findAll(),
             'validation' => \Config\Services::validation()
@@ -109,6 +116,7 @@ class Lamaran extends BaseController
         }
 
         $data = [
+            'user_id' => htmlspecialchars($this->request->getVar('user_id'), true),
             'perusahaan' => $this->request->getVar('perusahaan'),
             'posisi' => $this->request->getVar('posisi'),
             'alamat_perusahaan' => $this->request->getVar('alamat_perusahaan'),
@@ -151,6 +159,7 @@ class Lamaran extends BaseController
         $data = [
             'title' => $this->title,
             'portal' => $this->modelportal->findAll(),
+            'user' => $this->modeluser->findAll(),
             'lamaran' => $result
         ];
 
@@ -167,6 +176,7 @@ class Lamaran extends BaseController
     public function update($id = null)
     {
         $data = [
+            'user_id' => $this->request->getVar('user_id'),
             'perusahaan' => $this->request->getVar('perusahaan'),
             'posisi' => $this->request->getVar('posisi'),
             'alamat_perusahaan' => $this->request->getVar('alamat_perusahaan'),

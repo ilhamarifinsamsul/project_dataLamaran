@@ -24,6 +24,16 @@
             <div class="card-body">
                 <form action="<?= base_url('master/lamaran'); ?>" method="post">
                         <?= csrf_field(); ?>
+                    
+                        <div class="form-group">
+                        <label for="user_id">Nama</label>
+                        <select name="user_id" id="user_id" class="form-control">
+                            <?php foreach ($user as $d ) : ?>
+                                <option value="<?= $d['id']; ?>"><?= $d['nama_lengkap']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <label for="perusahaan">Nama Perusahaan</label>
                         <input type="text" name="perusahaan" id="perusahaan" class="form-control <?= ($validation->hasError('perusahaan')) ? 'is-invalid' : ''; ?> " placeholder="Nama Perusahaan">

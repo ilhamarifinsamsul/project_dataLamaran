@@ -24,6 +24,20 @@
             <div class="card-body">
                 <form action="<?= base_url('master/lamaran' . $lamaran['id']); ?>" method="post">
                         <?= csrf_field(); ?>
+                    
+                        <div class="form-group">
+                        <label for="user_id">Nama</label>
+                        <select name="user_id" id="user_id" class="form-control" disabled>
+                            <?php foreach ($user as $d ) : ?>
+                                <?php if($lamaran['user_id'] == $d['id']) : ?>
+                                    <option selected value="<?= $d['id']; ?>"><?= $d['nama_lengkap']; ?></option>
+                                    <?php else : ?>
+                                    <option value="<?= $d['id']; ?>"><?= $d['nama_lengkap']; ?></option>
+                                    <?php endif; ?>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    
                     <div class="form-group">
                         <input type="hidden" name="_method" value="PUT">
                         <label for="perusahaan">Nama Perusahaan</label>
