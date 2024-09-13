@@ -1,7 +1,8 @@
 <?php 
     $user = new App\Models\UserModel();
 
-    $resUser = $user->join('tb_role', 'tb_role.id = tb_users.role_id')->find(session()->get('role_id'));
+    $resUser = $user->join('tb_role', 'tb_role.id = tb_users.role_id')->find(session()->get('id'));
+    // dd($resUser);
 
 ?>
 

@@ -99,6 +99,16 @@
     <script src="<?= base_url(); ?>assets/src/assets/js/jquery.cookie.js"></script>
     <script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url(); ?>assets/sweetalert2/sweetalert2.all.min.js"></script>
+
+    <?php if(session()->get('message')): ?>
+            Swal.fire({
+            title: '<?= session()->get('message'); ?>',
+            text: '<?= session()->get('text'); ?>' ,
+            icon: '<?= session()->get('icon'); ?>',
+            confirmButtonText: 'Yes'
+            })
+
+    <?php endif; ?>
     
     <!-- endinject -->
     <script>

@@ -25,7 +25,10 @@ class Lamaran extends BaseController
     
     public function index()
     {
+
         $lamaran = $this->modellamaran->select('tb_lamaran.*')->select('perusahaan')->select('nama_portal')->select('nama_status')->join('tb_portal', 'tb_lamaran.portal_id = tb_portal.id')->join('tb_status', 'tb_lamaran.status_id = tb_status.id')->orderBy('id', 'DESC')->findAll();
+
+        
 
         $data = [
             'title' => $this->title,
