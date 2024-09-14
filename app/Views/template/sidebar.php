@@ -33,7 +33,7 @@
 
         <?php if (session()->get('role_id') == 1) :?>
         <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url(); ?>users">
                     <span class="menu-title">Kelola Users</span>
                     <i class="mdi mdi-account-multiple menu-icon"></i>
                 </a>
