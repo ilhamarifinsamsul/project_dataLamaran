@@ -52,8 +52,8 @@
                         <div class="brand-logo">
                         <img src="<?= base_url(); ?>assets/src/assets/images/logo.svg">
                         </div>
-                            <h4>Hello! let's get started</h4>
-                            <h6 class="font-weight-light">Sign in to continue.</h6>
+                            <h3>Login</h3>
+                            
                             <form class="pt-3" action="<?= base_url(); ?>authcontroller/proses_login" method="post">
 
                             <?= csrf_field(); ?>

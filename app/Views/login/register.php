@@ -30,8 +30,8 @@
                 <div class="brand-logo">
                   <img src="<?= base_url(); ?>assets/src/assets/images/logo.svg">
                 </div>
-                <h4>REGISTRASI</h4>
-                <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
+                <h3>REGISTRASI</h3>
+                
                 <form class="pt-3" action="<?= base_url() ?>authcontroller/register" method="post">
 
                   <div class="mb-3 text-danger"><?= validation_show_error('username'); ?></div>

@@ -25,7 +25,7 @@ class Users extends BaseController
     {
         $data = [
             'title' => $this->title,
-            'user' => $this->modeluser->join('tb_role', 'tb_users.role_id = tb_role.id')->findAll()
+            'user' => $this->modeluser->select('tb_users.*')->select('nama_role')->join('tb_role', 'tb_role.id = tb_users.role_id')->findAll()
         ];
 
         return view('users/index', $data);
@@ -47,6 +47,7 @@ class Users extends BaseController
             session()->setFlashdata('text', 'NOT VALID');
             session()->setFlashdata('icon', 'warning');
         }
+        
 
         $data = [
             'title' => $this->title,
