@@ -99,32 +99,20 @@
     <script src="<?= base_url(); ?>assets/src/assets/js/jquery.cookie.js"></script>
     <script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<?= base_url(); ?>assets/sweetalert2/sweetalert2.all.min.js"></script>
-
-    <?php if(session()->get('message')): ?>
-            Swal.fire({
-            title: '<?= session()->get('message'); ?>',
-            text: '<?= session()->get('text'); ?>' ,
-            icon: '<?= session()->get('icon'); ?>',
-            confirmButtonText: 'Yes'
-            })
-
-    <?php endif; ?>
     
-    <!-- endinject -->
     <script>
-        function fixAlert() {
-            // var alertShow = document.getElementsByClassName('swal2-shown');
-            // script by saepulfariz 3/12/2022
-            var alertShow = document.getElementsByClassName('swal2-height-auto');
-
-            if (alertShow) {
-                document.body.classList.remove('swal2-height-auto');
-            }
-        }
-        fixAlert();
-        setInterval(fixAlert, 5);
+        <?php if(session()->get('message')): ?>
+                Swal.fire({
+                title: '<?= session()->get('message'); ?>',
+                text: '<?= session()->get('text'); ?>' ,
+                icon: '<?= session()->get('icon'); ?>',
+                confirmButtonText: 'Yes'
+                })
+        <?php endif; ?>
     </script>
+    <!-- endinject -->
+    
 
-    <?= $alert->init('jquery'); ?>
+
 </body>
 </html>
