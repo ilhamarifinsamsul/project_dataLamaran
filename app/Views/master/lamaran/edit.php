@@ -22,10 +22,10 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <form action="<?= base_url('master/lamaran' . $lamaran['id']); ?>" method="post">
-                        <?= csrf_field(); ?>
-                    
-                        <div class="form-group">
+                <form action="<?= base_url('master/lamaran' . $lamaran['id']); ?>" method="post" enctype="multipart/form-data">
+                    <?= csrf_field(); ?>
+                    <input type="hidden" name="_method" value="PUT">
+                    <div class="form-group">
                         <label for="user_id">Nama</label>
                         <select name="user_id" id="user_id" class="form-control" disabled>
                             <?php foreach ($user as $d ) : ?>
@@ -39,7 +39,6 @@
                     </div>
                     
                     <div class="form-group">
-                        <input type="hidden" name="_method" value="PUT">
                         <label for="perusahaan">Nama Perusahaan</label>
                         <input type="text" name="perusahaan" id="perusahaan" class="form-control" value="<?= $lamaran['perusahaan']; ?>" disabled>
                     </div>

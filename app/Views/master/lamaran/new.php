@@ -22,7 +22,7 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <form action="<?= base_url('master/lamaran'); ?>" method="post">
+                <form action="<?= base_url('master/lamaran'); ?>" method="post" enctype="multipart/form-data">
                         <?= csrf_field(); ?>
                     
                         <div class="form-group">

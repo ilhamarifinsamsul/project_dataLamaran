@@ -23,7 +23,7 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <form action="<?= base_url('master/portal'); ?>" method="post">
+                <form action="<?= base_url('master/portal'); ?>" method="post" enctype="multipart/form-data">
                         <?= csrf_field(); ?>
                     <div class="form-group">
                         <label for="nama_portal">Nama Portal</label>

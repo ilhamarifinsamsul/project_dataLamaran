@@ -28,8 +28,6 @@ class Lamaran extends BaseController
     public function index()
     {
 
-        
-
         if (session()->get('role_id') == 1) {
             $lamaran = $this->modellamaran->select('tb_lamaran.*')->select('nama_lengkap')->select('nama_portal')->select('nama_status')->join('tb_portal', 'tb_lamaran.portal_id = tb_portal.id')->join('tb_status', 'tb_lamaran.status_id = tb_status.id')->join('tb_users', 'tb_lamaran.user_id = tb_users.id')->orderBy('id', 'DESC')->findAll();
         } else {

@@ -22,9 +22,9 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <form action="<?= base_url('users' . $user['id']); ?>" method="post">
-                        <?= csrf_field(); ?>
-                    
+                <form action="<?= base_url('users' . $user['id']); ?>" method="post" enctype="multipart/form-data">
+                    <?= csrf_field(); ?>
+                    <input type='hidden' name='_method' value='PUT' />
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" name="username" id="username" class="form-control" value="<?= $user['username']; ?>">
@@ -39,6 +39,12 @@
                         <label for="email">Email</label>
                         <input type="text" name="email" id="email" class="form-control" value="<?= $user['email']; ?>">
                     </div>
+
+                    <div class="form-group">
+                        <label for="password">password</label>
+                        <input type="password" name="password" id="password" class="form-control" value="<?= $user['password']; ?>">
+                    </div>
+
 
                     <div class="form-group">
                         <label for="alamat">Alamat</label>

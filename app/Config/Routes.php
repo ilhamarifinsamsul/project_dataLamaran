@@ -27,4 +27,7 @@ $routes->post('master/lamaran(:any)', 'Lamaran::update/$1');
 $routes->put('master/lamaran(:any)', 'Lamaran::update/$1');
 
 $routes->resource('users', ['controller' => 'Users']);
-
+$routes->get('users(:any)', 'Users::edit/$1');
+$routes->get('users(:any)', 'Users::update/$1');
+$routes->post('users(:any)', 'Users::update/$1');
+$routes->put('users(:any)', 'Users::update/$1');

@@ -23,10 +23,10 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <form action="<?= base_url('master/portal' . $portal['id']); ?>" method="post">
-                        <?= csrf_field(); ?>
+                <form action="<?= base_url('master/portal' . $portal['id']); ?>" method="post" enctype="multipart/form-data">
+                    <?= csrf_field(); ?>
+                    <input type="hidden" name="_method" value="PUT">
                     <div class="form-group">
-                        <input type="hidden" name="_method" value="PUT">
                         <label for="nama_portal">Nama Portal</label>
                         <input type="text" name="nama_portal" id="nama_portal" class="form-control" required value="<?= $portal['nama_portal']; ?>">
                     </div>
