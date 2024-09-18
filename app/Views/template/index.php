@@ -2,12 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php 
-    
-    $alert = new App\Libraries\Alert();
-
-?>
-
 
 <head>
     <!-- Required meta tags -->
@@ -40,7 +34,7 @@
     <?= $this->renderSection('head'); ?>
 </head>
 <body>
-    <?= $alert->get(); ?>
+
     <div class="container-scroller">
         
     <!-- partial:../../partials/_navbar.html -->
@@ -120,15 +114,13 @@
         
     </script>
     
-    
-
     <script type="text/javascript" src="<?= base_url(); ?>assets/DataTables/datatables.min.js"></script>
     
     
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
-    <?= $alert->init('jquery'); ?>
+
     <?= $this->renderSection('script'); ?>
 </body>
 </html>

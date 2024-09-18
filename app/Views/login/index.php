@@ -2,9 +2,6 @@
 <html lang="en">
 <head>
 
-<?php 
-    $alert = new App\Libraries\Alert();
-?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,7 +39,6 @@
 </head>
 <body>
 
-<?= $alert->get(); ?>
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="content-wrapper d-flex align-items-center auth">
